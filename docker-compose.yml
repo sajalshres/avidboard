@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  accounts:
+    build: ./services/accounts
+    image: avidboard-accounts
+    command: npm run dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./services/accounts:/usr/src/app
+    container_name: avidboard-accounts
