@@ -10,3 +10,13 @@ services:
     volumes:
       - ./services/accounts:/usr/src/app
     container_name: avidboard-accounts
+
+  kanban:
+    build: ./services/kanban
+    image: avidboard-kanban
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./services/kanban/app:/code/app
+    container_name: avidboard-kanban
