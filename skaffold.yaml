@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: avidboard
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: localhost:32000/avidboard-accounts
+      context: services/accounts
+      docker:
+        dockerfile: dockerfile
+    - image: localhost:32000/avidboard-kanban
+      context: services/kanban
+      docker:
+        dockerfile: dockerfile
+deploy:
+  kubectl:
+    manifests:
+      - k8s/ingress.yml
+      - k8s/mongodb.yml
+      - services/accounts/manifest.yml
+      - services/kanban/manifest.yml

@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: avidboard-accounts
+  namespace: avidboard
+spec:
+  selector:
+    app: avidboard-accounts
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avidboard-accounts
+  namespace: avidboard
+  labels:
+    app: avidboard-accounts
+spec:
+  selector:
+    matchLabels:
+      app: avidboard-accounts
+  template:
+    metadata:
+      labels:
+        app: avidboard-accounts
+    spec:
+      containers:
+        - name: avidboard-accounts
+          image: localhost:32000/avidboard-accounts:latest
+          imagePullPolicy: Always
+          command: ['npm']
+          args: ['run', 'dev']
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          ports:
+            - containerPort: 3000

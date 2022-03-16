@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-avidboard
+  namespace: avidboard
+spec:
+  rules:
+    - host: dev.master
+      http:
+        paths:
+          - path: /api/accounts/
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-accounts
+                port:
+                  number: 3000
+          - path: /api/kanban/
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-kanban
+                port:
+                  number: 8000

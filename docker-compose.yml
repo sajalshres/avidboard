@@ -10,6 +10,8 @@ services:
     volumes:
       - ./services/accounts:/usr/src/app
     container_name: avidboard-accounts
+    depends_on:
+      - mongodb
 
   kanban:
     build: ./services/kanban
@@ -20,3 +22,14 @@ services:
     volumes:
       - ./services/kanban/app:/code/app
     container_name: avidboard-kanban
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=AdminPass22
+    container_name: avidboard-mongodb

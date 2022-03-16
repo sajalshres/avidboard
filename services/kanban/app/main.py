@@ -3,6 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/api/status")
+@app.get("/api/kanban/status")
 def get_status():
-    return {"status": "ok"}
+    return {"status": "OK"}
