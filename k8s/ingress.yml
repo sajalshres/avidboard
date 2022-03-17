@@ -8,13 +8,20 @@ spec:
     - host: dev.master
       http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-web
+                port:
+                  number: 3000
           - path: /api/accounts/
             pathType: Prefix
             backend:
               service:
                 name: avidboard-accounts
                 port:
-                  number: 3000
+                  number: 5000
           - path: /api/kanban/
             pathType: Prefix
             backend:

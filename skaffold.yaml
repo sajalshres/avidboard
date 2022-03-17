@@ -14,6 +14,10 @@ build:
       context: services/kanban
       docker:
         dockerfile: dockerfile
+    - image: localhost:32000/avidboard-web
+      context: services/web
+      docker:
+        dockerfile: dockerfile
 deploy:
   kubectl:
     manifests:
@@ -21,3 +25,4 @@ deploy:
       - k8s/mongodb.yml
       - services/accounts/manifest.yml
       - services/kanban/manifest.yml
+      - services/web/manifest.yml
