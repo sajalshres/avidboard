@@ -4,7 +4,8 @@ metadata:
   name: avidboard
 build:
   tagPolicy:
-    sha256: {}
+    gitCommit:
+      ignoreChanges: false
   artifacts:
     - image: localhost:32000/avidboard-accounts
       context: services/accounts
@@ -19,10 +20,17 @@ build:
       docker:
         dockerfile: dockerfile
 deploy:
-  kubectl:
-    manifests:
-      - k8s/ingress.yml
-      - k8s/mongodb.yml
-      - services/accounts/manifest.yml
-      - services/kanban/manifest.yml
-      - services/web/manifest.yml
+  kustomize:
+    paths:
+      - k8s/overlays/dev
+profiles:
+  - name: base
+    deploy:
+      kustomize:
+        paths:
+          - k8s/base
+  - name: prod
+    deploy:
+      kustomize:
+        paths:
+          - k8s/overlays/prod

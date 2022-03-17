@@ -31,11 +31,11 @@ spec:
         - name: avidboard-accounts
           image: localhost:32000/avidboard-accounts:latest
           imagePullPolicy: Always
-          command: ['npm']
-          args: ['run', 'dev']
+          command: ["npm"]
+          args: ["run", "dev"]
           resources:
             limits:
-              memory: '512Mi'
-              cpu: '500m'
+              memory: "512Mi"
+              cpu: "500m"
           ports:
             - containerPort: 5000

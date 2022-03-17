@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+patchesJson6902:
+  - target:
+      group: extensions
+      version: v1
+      kind: Ingress
+      name: nginx
+    path: ingress.yml

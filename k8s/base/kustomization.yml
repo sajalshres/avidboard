@@ -1,0 +1,6 @@
+resources:
+  - ingress.yml
+  - mongodb.yml
+  - accounts.yml
+  - kanban.yml
+  - web.yml
