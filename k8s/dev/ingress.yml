@@ -2,10 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-avidboard
-  namespace: avidboard
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "letsencrypt-prod"
 spec:
+  tls:
+    - hosts:
+        - dev.sajalshres.com
+      secretName: dev.sajalshres.com-tls
   rules:
     - host: dev.sajalshres.com
       http:

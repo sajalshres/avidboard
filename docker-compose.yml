@@ -3,7 +3,7 @@ version: "3"
 services:
   web:
     build: ./services/web
-    image: avidboard-web
+    image: dev.master:30841/avidboard-web
     command: npm run dev
     ports:
       - 3000:3000
@@ -15,7 +15,7 @@ services:
       - kanban
   accounts:
     build: ./services/accounts
-    image: avidboard-accounts
+    image: dev.master:30841/avidboard-accounts
     command: npm run dev
     ports:
       - 5000:5000
@@ -27,7 +27,7 @@ services:
 
   kanban:
     build: ./services/kanban
-    image: avidboard-kanban
+    image: dev.master:30841/avidboard-kanban
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
     ports:
       - 8000:8000
