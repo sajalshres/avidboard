@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: avidboard-web
-          image: localhost:32000/avidboard-web:latest
+          image: dev.master:30841/avidboard-web:latest
           imagePullPolicy: Always
           command: ["npm"]
           args: ["run", "start"]

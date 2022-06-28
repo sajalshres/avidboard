@@ -7,15 +7,15 @@ build:
     gitCommit:
       ignoreChanges: false
   artifacts:
-    - image: localhost:32000/avidboard-accounts
+    - image: dev.master:30841/avidboard-accounts
       context: services/accounts
       docker:
         dockerfile: dockerfile
-    - image: localhost:32000/avidboard-kanban
+    - image: dev.master:30841/avidboard-kanban
       context: services/kanban
       docker:
         dockerfile: dockerfile
-    - image: localhost:32000/avidboard-web
+    - image: dev.master:30841/avidboard-web
       context: services/web
       docker:
         dockerfile: dockerfile
