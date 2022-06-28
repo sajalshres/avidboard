@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: avidboard-accounts
-          image: dev.master:30841/avidboard-accounts:latest
+          image: dev.master/avidboard-accounts:latest
           imagePullPolicy: Always
           command: ["npm"]
           args: ["run", "dev"]

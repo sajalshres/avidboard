@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-avidboard
+  namespace: avidboard
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: dev.sajalshres.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-web
+                port:
+                  number: 3000
+          - path: /api/accounts/
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-accounts
+                port:
+                  number: 5000
+          - path: /api/kanban/
+            pathType: Prefix
+            backend:
+              service:
+                name: avidboard-kanban
+                port:
+                  number: 8000
