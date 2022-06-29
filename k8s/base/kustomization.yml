@@ -1,8 +1,5 @@
 resources:
-  - letsencrypt-staging.yml
-  - letsencrypt-prod.yml
   - ingress.yml
-  - mongodb.yml
   - accounts.yml
   - kanban.yml
   - web.yml
