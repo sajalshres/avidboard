@@ -1,0 +1,27 @@
+{
+  "name": "avidboard",
+  "version": "0.1.0",
+  "description": "A simple Kanban app",
+  "main": "index.js",
+  "scripts": {
+    "compose:push": "TAG=$(git rev-parse --short HEAD) docker-compose push",
+    "compose:build": "TAG=$(git rev-parse --short HEAD) docker-compose build && npm run compose:push",
+    "k8s:dev": "./scripts/k8s_dev.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajalshres/avidboard.git"
+  },
+  "keywords": [
+    "nodejs",
+    "python",
+    "microservice",
+    "kubernetes"
+  ],
+  "author": "sajal.shres@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sajalshres/avidboard/issues"
+  },
+  "homepage": "https://github.com/sajalshres/avidboard#readme"
+}

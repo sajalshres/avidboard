@@ -1,4 +1,10 @@
 bases:
   - ../base
+configMapGenerator:
+  - name: avidboard-map
+    env: config.properties
+images:
+  - name: dev.master/avidboard-accounts
+    newTag: 38a8f1a
 patchesStrategicMerge:
   - ingress.yml
