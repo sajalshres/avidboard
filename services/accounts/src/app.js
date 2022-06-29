@@ -53,7 +53,7 @@ if (config.env === 'production') {
 }
 
 // routes
-app.use('/api/accounts', routes);
+app.use('/avidboard/api/accounts', routes);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {

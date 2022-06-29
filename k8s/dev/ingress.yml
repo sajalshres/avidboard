@@ -14,21 +14,21 @@ spec:
     - host: dev.sajalshres.com
       http:
         paths:
-          - path: /
+          - path: /avidboard
             pathType: Prefix
             backend:
               service:
                 name: avidboard-web
                 port:
                   number: 3000
-          - path: /api/accounts/
+          - path: /avidboard/api/accounts/
             pathType: Prefix
             backend:
               service:
                 name: avidboard-accounts
                 port:
                   number: 5000
-          - path: /api/kanban/
+          - path: /avidboard/api/kanban/
             pathType: Prefix
             backend:
               service:
